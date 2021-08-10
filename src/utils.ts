@@ -24,16 +24,6 @@ export const hhmmss = (duration: string): string => {
     return str;
 }
 
-export const getPosterImageUrl = (image: string, title: string, artist: string = "@ab745/TGVCBot") => {
-    let query = stringify({
-        image,
-        title: (title.length > 55) ? title.slice(0, 52) + "..." : title,
-        artist: (artist.length > 45) ? artist.slice(0, 42) + "..." : artist,
-        // x: Date.now()
-    })
-    return `http://telegra.ph/file/3fcaf318ae6f5d81f726e.png`;
-}
-
 export const sendPlayingMessage = async (chat: Chat, data: QueueData) => {
     let text =
         `Playing <a href="${data.link}">${data.title}</a>\n` +
