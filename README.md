@@ -1,4 +1,4 @@
-# TGVCBot (Beta)
+# LyciaMusicBot (Beta)
 
 
 ![LOGO](https://telegra.ph/file/4a058c58b9e783da5d184.jpg)
