@@ -1,7 +1,5 @@
 # TGVCBot (Beta)
 
-[![Deploy to Heroku](https://github.com/NeuroticCoders/LyciaMusicBot/actions/workflows/heroku.yml/badge.svg?branch=main)](https://github.com/NeuroticCoders/LyciaMusicBot/actions/workflows/heroku.yml)
-[![TypeScript Build](https://github.com/NeuroticCoders/LyciaMusicBot/actions/workflows/typescript.yml/badge.svg?branch=main)](https://github.com/NeuroticCoders/LyciaMusicBot/actions/workflows/typescript.yml)
 
 ![LOGO](https://telegra.ph/file/4a058c58b9e783da5d184.jpg)
 
