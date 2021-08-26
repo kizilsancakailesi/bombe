@@ -1,17 +1,21 @@
-import { Composer, Markup } from 'telegraf';
-import { escape } from 'html-escaper';
+import { Composer } from 'telegraf';
 
-export const Start = Composer.command('start', async (ctx) => {
-    let text =
-        `Hi <a href="tg://user?id=${ctx.from.id}">${escape(ctx.from.first_name + " " + ctx.from.last_name)}</a>\n` +
-        `I'm <b>Lycia</b>, <i>The Music Bot</i>.\n` +
-        `I can Play Songs in Group Voice Chats.\n` +
-        `\n` +
-        `Maintained by <a href="https://t.me/NeuroticAssociation">Neurotic Association</a>`
-    await ctx.replyWithHTML(text, {
-        ...Markup.inlineKeyboard([
-            [Markup.button.url('Add me', 'http://t.me/LyciaMusicBot?startgroup=true')]
-        ]),
-        disable_web_page_preview: true
-    })
+
+const help: string =
+    `*Commands Available :*\n\n` +
+    `\n` +  
+    `/jiosaavn or /jsvn : Play songs from JioSaavn\n` +
+    `/ytplay or /yt : Play songs from YouTube\n` +
+    `/play : Reply this command to audio files to play the file\n` +
+    `/queue or /playlist : Check queued songs list\n` +
+    `/p or /pause : Pause the stream\n` +
+    `/r or /pause: Resume the stream\n` +
+    `/next or /skip : Skip the current song\n` +
+    `/stopvc : Stop the stream\n` +
+    `/help : Show this Menu`
+
+export const Help = Composer.command('help', async ctx => {
+    
+    await ctx.replyWithMarkdownV2(ctx.chat.type === 'private' ? help : 'This Command works in private Only' );
+    
 })
