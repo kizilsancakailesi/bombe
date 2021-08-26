@@ -1,12 +1,14 @@
 import { GramTGCalls } from 'gram-tgcalls';
 import { userbot } from './userbot';
-import bot, { log } from './bot';
+import bot from './bot';
+import env from './env';
 import { Chat } from './types/chat';
+import { Ytmp3 } from './types/ytmp3.response';
 import { queue, QueueData } from './queue';
 import { escape } from 'html-escaper';
 import { ffmpeg } from './ffmpeg';
-import { sendPlayingMessage } from './utils';
-import ytdl from 'ytdl-core-telegram';
+import { sendPlayingMessage, getDownloadLink } from './utils';
+import axios from 'axios';
 
 export const TgCalls = new GramTGCalls(userbot);
 
@@ -23,6 +25,10 @@ export const onFinish = async (chat: Chat) => {
 }
 
 export const playOrQueueSong = async (chat: Chat, data: QueueData, force: boolean = false) => {
+
+    if (parseInt(data.duration, 10) > env.MAX_DURATION) {
+        return await bot.telegram.sendMessage(chat.id, "This song exceeded supported duration, Skipped");
+    }
 
     if (TgCalls.connected(chat.id) && !TgCalls.finished(chat.id) && !force) {
         let position = queue.push(chat.id, data);
@@ -45,8 +51,24 @@ export const playOrQueueSong = async (chat: Chat, data: QueueData, force: boolea
         await sendPlayingMessage(chat, data);
     }
 
+    if (data.provider === 'telegram') {
+        let mp3_link = await getDownloadLink(data.mp3_link);
+        let poster = data.image.startsWith('http') ? data.image : await getDownloadLink(data.image);
+
+        let FFMPEG = ffmpeg(mp3_link);
+        await TgCalls.stream(chat.id, FFMPEG, {
+            onFinish: () => onFinish(chat),
+            stream: streamParams
+        });
+        await sendPlayingMessage(chat, { ...data, image: poster });
+    }
+
     if (data.provider === 'youtube') {
-        let readable = ytdl.downloadFromInfo(await ytdl.getInfo(data.link), { quality: 'highestaudio', filter: 'audioonly' })
+        let response = (await axios.get<Ytmp3>(`https://apis.arnabxd.me/ytmp3?id=${data.mp3_link}`)).data
+
+        let audio = (response.audio.filter(d => d.itag === 251).length > 0) ? response.audio.filter(d => d.itag === 251)[0] : response.audio[0]
+        let readable = ffmpeg(audio.url)
+
         await TgCalls.stream(chat.id, readable, {
             onFinish: () => onFinish(chat),
             stream: streamParams
