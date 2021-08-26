@@ -8,6 +8,7 @@ import { InitHandlers } from './handlers';
     InitHandlers();
     await bot.launch({
         dropPendingUpdates: true,
+        allowedUpdates: ["message", "callback_query"]
     })
     await log("Bot is Running");
     await startUserBot();
