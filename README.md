@@ -1,4 +1,4 @@
-# LyciaMusicBot (Beta)
+# LyciaMusicBot
 
 
 ![LOGO](https://telegra.ph/file/4a058c58b9e783da5d184.jpg)
@@ -9,6 +9,19 @@
 - FFMPEG
 - NodeJs > V14. (Latest is better)
 - Yarn (Optional)
+
+### Environment Variables
+
+| Name         | Description                                                                                     | Required |
+|--------------|-------------------------------------------------------------------------------------------------|----------|
+| API_ID       | Your telegram app's API_ID. Get it from https://my.telegram.org/apps                            | True     |
+| API_HASH     | Your telegram app's API_HASH. Get it from https://my.telegram.org/apps                          | True     |
+| BOT_TOKEN    | Bot Token from @BotFather                                                                       | True     |
+| LOG_CHANNEL  | Chat ID of Channel/Group to keep logs. (Make sure to add VC User and Bot to the group)          | True     |
+| SESSION      | GramJS/Telethon session string of the VC User                                                   | True     |
+| CODEC        | Custom codec and other extra FFMPEG params support. Default Value : `-c:a libmp3lame -b:a 128K` | False    |
+| MAX_DURATION | Set maximum duration of the stream. Default - `360` seconds                                     | False    | 
+
 
 ### Deploy
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/NeuroticCoders/LyciaMusicBot)
