@@ -1,11 +1,10 @@
 {
-  "name": "tgvcbot",
-  "version": "0.1.5",
+  "name": "lyciamusic",
+  "version": "0.1.7",
   "description": "Telegram Bot to Play Music in Voice Chat",
   "main": "app.js",
   "scripts": {
     "dev": "nodemon src/app.ts",
-    "session": "ts-node src/session.ts",
     "test": "tsc --noEmit",
     "build": "tsc",
     "start": "node build/app.js"
@@ -24,10 +23,15 @@
     "axios": "^0.21.1",
     "dotenv": "^10.0.0",
     "envalid": "^7.1.1",
-    "gram-tgcalls": "^1.3.7",
+    "gram-tgcalls": "^1.3.9",
     "html-escaper": "^3.0.3",
     "telegraf": "^4.4.1",
-    "yt-search": "^2.10.0",
-    "ytdl-core-telegram": "^2.0.6"
+    "yt-search": "^2.10.0"
+  },
+  "resolutions": {
+    "telegram": "^1.8.7"
+  },
+  "engines": {
+    "node": ">=14.x"
   }
 }
