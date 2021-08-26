@@ -24,13 +24,14 @@ export const hhmmss = (duration: string): string => {
     return str;
 }
 
+
 export const sendPlayingMessage = async (chat: Chat, data: QueueData) => {
     let text =
         `Playing <a href="${data.link}">${data.title}</a>\n` +
         `<b>&#10143;</b> Duration : ${hhmmss(data.duration)}\n` +
         `<b>&#10143;</b> Requested by <a href="tg://user?id=${data.requestedBy.id}">${escape(data.requestedBy.first_name)}</a>`;
     try {
-        await bot.telegram.sendPhoto(chat.id, "https://telegra.ph/file/a80ba1b6a12125f106883.png", {
+        await bot.telegram.sendPhoto(chat.id, "https://telegra.ph/file/4a058c58b9e783da5d184.jpg", {
             caption: text,
             parse_mode: 'HTML'
         });
@@ -39,4 +40,14 @@ export const sendPlayingMessage = async (chat: Chat, data: QueueData) => {
         await bot.telegram.sendMessage(chat.id, text, { parse_mode: 'HTML' });
         await log(escape(String(err)));
     }
+}
+
+export const getMessageLink = (chat: number, message_id: number) => {
+    let chat_id = chat.toString();
+    return `https://t.me/c/${chat_id.slice(chat_id.startsWith("-100") ? 4 : 1)}/${message_id}`
+}
+
+export const getDownloadLink = async (id: string): Promise<string> => {
+    let resp = await bot.telegram.getFileLink(id)
+    return resp.href
 }
