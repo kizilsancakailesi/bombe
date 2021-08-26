@@ -13,7 +13,7 @@
 ### Deploy
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/NeuroticCoders/LyciaMusicBot)
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https%3A%2F%2Fgithub.com%2FNeuroticCoders%2FLyciaMusicBot&envs=API_ID%2CAPI_HASH%2CBOT_TOKEN%2CLOG_CHANNEL%2CSESSION%2CCODEC&optionalEnvs=CODEC&API_IDDesc=Get+API_ID+from+https%3A%2F%2Fmy.telegram.org%2Fapps.&API_HASHDesc=Get+API_HASH+from+https%3A%2F%2Fmy.telegram.org%2Fapps.&BOT_TOKENDesc=Bot+Token+from+%40BotFather&LOG_CHANNELDesc=LOG+Channel+ID+%28Make+sure+bot+and+VC+User+are+added+in+the+group%29&SESSIONDesc=GramJS%2FTelethon+Session+of+the+VC+User%22&CODECDesc=Custom+FFMPEG+Codec)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/NeuroticCoders/LyciaMusicBot&envs=API_ID,API_HASH,BOT_TOKEN,LOG_CHANNEL,SESSION,CODEC,MAX_DURATION&optionalEnvs=CODEC,MAX_DURATION&API_IDDesc=Get%20API_ID%20from%20https://my.telegram.org/apps.&API_HASHDesc=Get%20API_HASH%20from%20https://my.telegram.org/apps.&BOT_TOKENDesc=Bot%20Token%20from%20@BotFather&LOG_CHANNELDesc=LOG%20Channel%20ID%20(Make%20sure%20bot%20and%20VC%20User%20are%20added%20in%20the%20group)&SESSIONDesc=GramJS/Telethon%20Session%20of%20the%20VC%20User%22&CODECDesc=Custom%20FFMPEG%20Codec%20and%20Bitrate&MAX_DURATIONDesc=Maximum%20Duration%20Support%20for%20Each%20Stream)
 
 ## Bot Usage
 
@@ -26,5 +26,6 @@
 - `/stopvc` : Stop the Stream
 
 ## Thanks to
+- [ArnabXD](https://github.com/ArnabXD) 
 - [@cachecleanerjeet](https://github.com/cachecleanerjeet) for [JioSaavn API](https://github.com/cachecleanerjeet/JiosaavnAPI)
 - Respective devs of all the packages/libraries used.
