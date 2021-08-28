@@ -1,0 +1,11 @@
+---
+application:
+  name: "lyciamusicbot"
+  project: "LyciaMusic"
+  organization: "QoveryCommunity"
+routers:
+- name: "main-lyciamusicbot"
+  routes:
+  - application_name: "lyciamusicbot"
+    paths:
+    - "/*"
