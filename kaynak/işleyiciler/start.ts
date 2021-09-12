@@ -7,10 +7,10 @@ export const Start = Composer.command('start', async (ctx) => {
         `I'm <b>Lycia</b>, <i>The Music Bot</i>.\n` +
         `I can Play Songs in Group Voice Chats.\n` +
         `\n` +
-        `Maintained by <a href="https://t.me/NeuroticAssociation">Neurotic Association</a>`
+        `Maintained by <a href="https://t.me/kizilsancakbilgi">Neurotic Association</a>`
     await ctx.replyWithHTML(text, {
         ...Markup.inlineKeyboard([
-            [Markup.button.url('Add me', 'http://t.me/LyciaMusicBot?startgroup=true')]
+            [Markup.button.url('Add me', 'http://t.me/ellycarlMusicBot?startgroup=true')]
         ]),
         disable_web_page_preview: true
     })
